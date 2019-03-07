@@ -72,7 +72,7 @@ Store.prototype.generateId
 		}
 	};
     
-> Générer un nouvel __identifiant unique__. Utilise le paramètre global self. Si aucun Id n'existe, il est égal à 1, sinon la valeur 1 est augmentée et retourne le identifiant.
+> Générer un nouvel __identifiant unique__. Utilise le paramètre global self. Si aucun Id n'existe, il est égal à 1, sinon récupère le dernier todo sauvegardé dans localStorage et l'augmente + 1 pour finir retourne le identifiant.
     
     Store.prototype.generateId = function () {
     
@@ -122,54 +122,66 @@ Télécharger [le dossier](https://github.com/mayroj/To-do-list-app) puis ouvrir
 
 Pour voir plus en détails les tests aller dans le fichier [__ControllerSpec.js__](./test/ControllerSpec.js)
 
-#### Récap des tests effectués :
-
-> 1. #62 => test si on affiche bien model et view
-> 2. #92 => test la view quand on affiche les todos de l'onglet active
-> 3. #114 => test la view quand on affiche les todos de l'onglet completed
-> 4. #179 => test la view si "All" est surligné quand on a l' onglet par défaut
-> 5. #188 => test la view si "Active" est surligné quand on change pour l'onglet active
-> 6. #198 => test le model quand on bascule tous les états des todos vers terminé
-> 7. #213 => test la mise à jour de view
-> 8. #232=> test le model en cas d' ajout d'un todo
-> 9. #281 => test le model si on supprime un todo
-
 #### Tests suivants ajoutés :
 
-> 1. #103 => test le model quand on affiche les todos de l'onglet active
-
-	it('should show active entries to the model (NEW TEST)', function () {
-		// test le model
-		var todo = {title: 'my todo', completed: false};
-		setUpModel([todo]);
-
-		subject.setView('#/active');
-
-		expect(model.read).toHaveBeenCalledWith({completed: false}, jasmine.any(Function));
-	});
+> 1. #92 => test quand on affiche les todos de l'onglet active
+    
+    it('should show active entries', function () {
+			// TODO: write test
+			////////// ln 78 controller.js ////////////
+            /*
+			Controller.prototype.showActive = function () {
+					var self = this;
+					self.model.read({ completed: false }, function (data) {
+						self.view.render('showEntries', data);
+					});
+				};
+			*/
+            var todo = {title: 'my todo', completed: false};
+            setUpModel([todo]);
+            
+            subject.setView('#/active'); // définit la vue pour afficher les éléments actifs
+            
+            expect(model.read).toHaveBeenCalledWith({completed: false}, jasmine.any(Function)); // appelle la méthode model.read avec la valeur completed: false et la function comme parametre.
+            
+            expect(view.render).toHaveBeenCalledWith('showEntries', [todo]); // La méthode render montre ensuite les entrées et le tableau todo
+            
+            expect(todo.completed).toEqual(false); // La tâche complétée devrait toujours être fausse!
+            
+		});
 	
-> 2. #125 => test le model quand on affiche les todos de l'onglet completed
+> 2. #116 => test quand on affiche les todos de l'onglet completed
 	
-	it('should show completed entries to the model (NEW TEST)', function () {
-		// test le model
-		var todo = {title: 'my todo', completed: true};
-		setUpModel([todo]);
-
-		subject.setView('#/completed');
-
-		expect(model.read).toHaveBeenCalledWith({completed: true}, jasmine.any(Function));
-	})
-
+	it('should show completed entries', function () {
+			// TODO: write test           
+            /*
+			/////////// ln 89 controller.js /////////////
+			Controller.prototype.showCompleted = function () {
+				var self = this;
+				self.model.read({ completed: true }, function (data) {
+					self.view.render('showEntries', data);
+				});
+			};
+			*/
+            var todo = {title: 'my todo', completed: true};
+            setUpModel([todo]);
+            
+            subject.setView('#/completed'); // défini la vue pour afficher les éléments complets
+            
+            expect(model.read).toHaveBeenCalledWith({completed: true}, jasmine.any(Function));
+            
+            expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+            
+            expect(todo.completed).toEqual(true);
+		});
 
 
 ## _Etape 3 : optimisez la performance du site [todolistme.net](http://todolistme.net/)_
 
-Ouvrir l' _audit de performance_ dans votre navigateur : [__audit de performance__](./livrable/audit.md)
+Ouvrir l' _audit de performance_ dans votre navigateur : [__audit de performance__](./documentation/todo-audit.md)
 
 
 ## _Etape 4 : améliorez le projet_
 
-Ouvrir la _documentation utilisateur_ dans votre navigateur : [__documentation utilisateur__](./livrable/doc_utilisateur.md)
+Ouvrir la _documentation technique_ dans votre navigateur : [__documentation technique__](./documentation/todo-documentation.md)
 
-Ouvrir la _documentation technique_ dans votre navigateur : [__documentation technique__](https://gu1ll0m.github.io/projet8_todolist/)
-> Documentation technique généré avec [_jsDoc_](https://github.com/jsdoc3/jsdoc) et [_docDash_](https://github.com/clenemt/docdash).
