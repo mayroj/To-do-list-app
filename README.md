@@ -37,9 +37,6 @@ Controller.prototype.__addItem__ à la place de Controller.prototype.__adddItem_
 
 #### 2. bug 2 : création des ID dans [__store.js__](./js/store.js)
 
-Store.prototype.save
-Store.prototype.generateId
-
 > Quelques ameliorations du code dans la methode __save__. La variable newId fait appelle à une nouvelle function __generateId__.
 
 	Store.prototype.save = function (updateData, callback, id) {
@@ -72,7 +69,7 @@ Store.prototype.generateId
 		}
 	};
     
-> Générer un nouvel __identifiant unique__. Utilise le paramètre global self. Si aucun Id n'existe, il est égal à 1, sinon récupère le dernier todo sauvegardé dans localStorage et l'augmente + 1 pour finir retourne le identifiant.
+> Génére un nouvel __identifiant unique__. Utilise le paramètre global self. Si aucun Id n'existe, il est égal à 1, sinon récupère le dernier todo sauvegardé dans localStorage et l'augmente + 1 pour finir retourne le identifiant.
     
     Store.prototype.generateId = function () {
     
