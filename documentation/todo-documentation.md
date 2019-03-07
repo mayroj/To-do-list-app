@@ -12,7 +12,6 @@ L'application To-do List utilise le stockage local de l'utilisateur pour que tou
 
 Par conséquent, la liste restera disponible et évoluera naturellement au fur et à mesure que l'utilisateur ajoute ou supprime un élément.
 
-![img](doc_todo.png)
 ![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/doc_todo.PNG)
 
 * --app.js-- C’est le fichier fondamentale qui rassemble toutes les autre fichiers de l'app (store, model, template, view, helpers et controller)
@@ -26,11 +25,11 @@ Par conséquent, la liste restera disponible et évoluera naturellement au fur e
 ## 1. Ajout d'éléments
 Ajouter des éléments en les tapant dans l'input du form visible
 
-![img](doc_creer_todo.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/doc_creer_todo.PNG)
 
 Appuyez sur Enter, cliquez en dehors du formulaire ou cliquez sur la flèche vers le bas à gauche et l'élément sera automatiquement affiché dans la liste.
 
-![img](doc_premier_todo.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/doc_premier_todo.PNG)
 
 Plusieurs éléments sont apparus :
 + un icône à gauche de « what needs to be done ? »
@@ -55,7 +54,7 @@ Survolez l'élément que vous souhaitez supprimer et cliquez sur le «X».
 
 Pour effacer les éléments terminés, cliquez sur __Clear completed__ en bas à droite de la liste que vous avez créée. (cette option ne s'affichera pas s'il n'y a aucun élément dans la liste).
 
-![img](doc_supprimer_todo.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/doc_supprimer_todo.PNG)
 
 ## 4. Voir le status de les éléments
 
