@@ -14,13 +14,13 @@ Par conséquent, la liste restera disponible et évoluera naturellement au fur e
 
 ![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/doc_todo.PNG)
 
-* --app.js-- C’est le fichier fondamentale qui rassemble toutes les autre fichiers de l'app (store, model, template, view, helpers et controller)
-* --controller.js-- Utilise les éléments Model et View et contrôle leurs interactions, comme supprimer, modification ou ajout d'un nouvel élément la liste
-* --helpers.js-- C'est une collection d’aides pour les manipulations de la DOM
-* --model.js-- Considère les modèles comme des instances du code, contrôlés par controller lorsqu'ils sont utilisés avec le script de view.js
-* --store.js-- Gère le script de stockage des donneés
-* --template.js-- Tous les éléments représentés visuellement dans le navigateur de l'utilisateur
-* --View.js-- Interagit avec model.js via controller.js. Ceci est composé d'objets concernant les éléments plus précisément.
++ __app.js__ C’est le fichier fondamentale qui rassemble toutes les autre fichiers de l'app (store, model, template, view, helpers et controller)
++ __controller.js__ Utilise les éléments Model et View et contrôle leurs interactions, comme supprimer, modification ou ajout d'un nouvel élément la liste
++ __helpers.js__ C'est une collection d’aides pour les manipulations de la DOM
++ __model.js__ Considère les modèles comme des instances du code, contrôlés par controller lorsqu'ils sont utilisés avec le script de view.js
++ __store.js__ Gère le script de stockage des donneés
++ __template.js__ Tous les éléments représentés visuellement dans le navigateur de l'utilisateur
++ __View.js__ Interagit avec model.js via controller.js. Ceci est composé d'objets concernant les éléments plus précisément.
 
 ## 1. Ajout d'éléments
 Ajouter des éléments en les tapant dans l'input du form visible
