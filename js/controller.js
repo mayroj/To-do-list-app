@@ -165,21 +165,22 @@
 	 * storage
 	 */
    
-	Controller.prototype.removeItem = function (id) {
+	Controller.prototype.removeItem = function (id) { // amelioration 
 		var self = this;
 		var items;
 		self.model.read(function(data) {
 			items = data;
 		});
 
-		items.forEach(function(item) {
+		/*items.forEach(function(item) {
 			if (item.id === id) {
 				console.log("Element with ID: " + id + " has been removed.");
 			}
-		});
+		});*/
 
 		self.model.remove(id, function () {
 			self.view.render('removeItem', id);
+            console.log("Element with ID: " + id + " has been removed.");
 		});
 
 		self._filter();
