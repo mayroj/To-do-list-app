@@ -13,6 +13,7 @@ L'application To-do List utilise le stockage local de l'utilisateur pour que tou
 Par conséquent, la liste restera disponible et évoluera naturellement au fur et à mesure que l'utilisateur ajoute ou supprime un élément.
 
 ![img](doc_todo.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/doc_todo.PNG)
 
 * --app.js-- C’est le fichier fondamentale qui rassemble toutes les autre fichiers de l'app (store, model, template, view, helpers et controller)
 * --controller.js-- Utilise les éléments Model et View et contrôle leurs interactions, comme supprimer, modification ou ajout d'un nouvel élément la liste
