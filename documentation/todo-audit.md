@@ -11,7 +11,7 @@ L’ audit à été réalisé avec les outils fournis par la console de notre na
 
 #### 2-2- Outil « audit »
 
-![img](To-do-list-app/documentation/audit_todolistme.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/audit_todolistme.PNG)
 
 ##### 2-2-1- Performance
 
@@ -23,7 +23,7 @@ Todolistme est dans la gamme orange, ce qui n’est pas terrible mais peut encor
 
 > __Metrics__
 
-![img](audit_perfomance_metrics.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/audit_perfomance_metrics.PNG)
 
 La plupart de ces scores de métrique sont satisfaisants, mais les scores de __First CPU Idle__ et __Time to Interactive__ ne sont pas intéressants.
 Les visuels de la page se chargent rapidement, mais il faut beaucoup de temps avant que la page soit prête pour gérer la saisie initiale.
@@ -34,7 +34,7 @@ Une fois que cette entrée peut être traitée et acceptée, la réponse est ens
 Lighthouse fournit des conseils pour aider à optimiser les scores qui ne sont pas idéaux.
 Ces opportunités fournissent également des __économies estimées__(Estimated Savings).
 
-![img](audit_perfomance_opportunites.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/audit_perfomance_opportunites.PNG)
 
 Les ressources sur lesquelles le site s'appuie prennent du temps à se charger.
 Plus précisément, Todolistme.net utilise une version non-minified de jquery; le simple fait de passer à la version optimisée aiderait la charge du site plus rapide, avec d'autres ressources CSS (polices et styles).
@@ -48,7 +48,7 @@ Si la compatibilité du navigateur est une priorité, alors une solution est de 
 
 > __Diagnostics__
 
-![img](audit_perfomance_diagnostics.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/audit_perfomance_diagnostics.PNG)
 
 __Todolistme.net__ utilise une police Web Google ("Architect’s Daughter") chargée via CSS.
 Cette police donne une apparence manuscrite amusante pour l'application, mais constitue une ressource importante dans la charge initiale du site.
@@ -62,7 +62,7 @@ En détail, le rapport identifie le fichier texture.png susmentionné sur __Cach
 
 Les scripts JavaScript de __Todolistme.net__ ont un impact approximatif sur les temps de chargement des scores de __Minimize main-thread work__ et __Reduce JavaScript execution time__. Les fichiers JavaScript de longue durée doivent être retiré du thread principal. L'utilisation d'un outil Web aidera à contrôler le moment où le code JavaScript est utilisé et chargé au lieu de le regrouper avec tout le reste du site qui tente de se charger, ce qui entraînera des images manquantes.
 
-![img](audit_perfomance_diagnostics_path.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/audit_perfomance_diagnostics_path.PNG)
 
 Le plus grand chemin critique de __Todolistme.net__ est l’utilisation de la publicité. Ces publicités provoquent une latence de 440 ms par elles-mêmes. Les sources de ce diagramme doivent être éliminées si elles ne sont pas nécessaires ou différées.
 En réduisant le fichier jQuery et en supprimant Google Ad Service, les performances seraient considérablement améliorées.
