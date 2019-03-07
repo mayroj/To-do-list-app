@@ -12,7 +12,7 @@ Les tests unitaires sont à améliorer en utilisant le framework __Jasmine__ et 
 
 Un audit de performance est attendu sur un site concurrent à notre application, la mise en évidence de certaines fonctionnalités intéressantes est attendue l'outil utilisé __Lighthouse Audit__ depuis la console Google Chrome.
 
-![img](ecran_todolist.png)
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/ecran_todolist.png)
 
 
 ## _Etape 1 : Corrigez les bugs_
@@ -38,47 +38,56 @@ Controller.prototype.__addItem__ à la place de Controller.prototype.__adddItem_
 #### 2. bug 2 : création des ID dans [__store.js__](./js/store.js)
 
 Store.prototype.save
+Store.prototype.generateId
 
-> La méthode [Date.now()](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date/now) est parfaitement adaptée. La fonction retourne un chiffre unique correspondant au nombre de millisecondes écoulées depuis le 1er Janvier 1970 00:00:00. 
-
-> Il s' agit donc de notre __identifiant unique__.
+> Quelques ameliorations du code dans la methode __save__. La variable newId fait appelle à une nouvelle function __generateId__.
 
 	Store.prototype.save = function (updateData, callback, id) {
-        	var data = JSON.parse(localStorage[this._dbName]);
-        	var todos = data.todos;
+		var data = JSON.parse(localStorage[this._dbName]);
+		var todos = data.todos;
 
-        	callback = callback || function () {};
+		callback = callback || function () {};
 
-		/**
-		 * Si un ID a été donné, trouve l'élément et met à jour les propriétés
-		 * @param  {number} (id) L' ID de l' élément.
-		 */
+	    var newId = this.generateId();        
+
 		if (id) {
 			for (var i = 0; i < todos.length; i++) {
-		  		if (todos[i].id === id) {
-		    		for (var key in updateData) {
-	      			todos[i][key] = updateData[key];
-		    		}
-		    		break;
-		  		}
+				if (todos[i].id === id) {
+					for (var key in updateData) {
+						todos[i][key] = updateData[key];
+					}
+					break;
+				}
 			}
+
 			localStorage[this._dbName] = JSON.stringify(data);
 			callback.call(this, todos);
 		} else {
-  			/**
-			 * Génére un identifiant unique
-			 * @see  https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date/now
-			 * @example
-			 * returns {number} 1519326977765
-			 */
-			updateData.id = Date.now();
-			console.log('id create : ' + updateData.id);
+
+			updateData.id = parseInt(newId);
+    
 			todos.push(updateData);
 			localStorage[this._dbName] = JSON.stringify(data);
 			callback.call(this, [updateData]);
 		}
+	};
+    
+> Générer un nouvel __identifiant unique__. Utilise le paramètre global self. Si aucun Id n'existe, il est égal à 1, sinon la valeur 1 est augmentée et retourne le identifiant.
+    
+    Store.prototype.generateId = function () {
+    
+        var todos = JSON.parse(localStorage[this._dbName]).todos;
+        
+        if (todos.length > 0) {
+            var lastId = todos[todos.length - 1].id;
+            self.id = lastId + 1;
+        } else {
+            self.id = 1;
+        }      
+        
+        return self.id;
     };
-
+    
 #### 3. amélioration : [__controller.js__](./js/controller.js)
 
 Controller.prototype.removeItem => la boucle forEach est inadaptée.
@@ -101,7 +110,6 @@ Controller.prototype.removeItem => la boucle forEach est inadaptée.
 	};
 
 
-
 ## _Etape 2 : où sont les tests ?!_
 
 Tests unitaires avec le framework[ __Jasmine__](https://github.com/jasmine/)
@@ -110,7 +118,7 @@ Pré-requis :
 * installer [NPM et NodeJs](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm)
 * installer [ __Jasmine__](https://github.com/jasmine/jasmine/releases)
 
-Télécharger [le dossier](https://github.com/Gu1ll0m/projet8_todolist.git) puis ouvrir dans votre navigateur le fichier __SpecRunner.html__ que vous trouverez en suivant le chemin suivant `../P8/test/SpecRunner.html`
+Télécharger [le dossier](https://github.com/mayroj/To-do-list-app) puis ouvrir dans votre navigateur le fichier __SpecRunner.html__ que vous trouverez en suivant le chemin suivant `../test/SpecRunner.html`
 
 Pour voir plus en détails les tests aller dans le fichier [__ControllerSpec.js__](./test/ControllerSpec.js)
 
