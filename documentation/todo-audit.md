@@ -82,6 +82,8 @@ l'option d'inscription au site __todolistme.net__, qui permet la sauvegarde des 
 
 #### 4-2. Performance 
 
+![alt text](https://github.com/mayroj/To-do-list-app/blob/master/documentation/perfomance_todolistapp.PNG)
+
 OK
 
 #### 4-3. Accessibilité
