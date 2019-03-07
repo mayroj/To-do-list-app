@@ -11,7 +11,7 @@ L’ audit à été réalisé avec les outils fournis par la console de notre na
 
 #### 2-2- Outil « audit »
 
-![img](audit_todolistme.png)
+![img](To-do-list-app/documentation/audit_todolistme.png)
 
 ##### 2-2-1- Performance
 
