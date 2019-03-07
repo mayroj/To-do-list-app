@@ -8,16 +8,12 @@ Amélioration d'un projet existant de todo-list en vanillaJS.
 
 Le projet comporte quelques bugs à __identifier et corriger__, quelques __optimisations__ possibles à intégrer.
 
-Les tests unitaires sont à améliorer en utilisant le framework __Jasmine__.
+Les tests unitaires sont à améliorer en utilisant le framework __Jasmine__ et optimisé à l’aide de tâches __gulp-uglify__.
 
-Un audit de performance est attendu sur un site concurrent à notre application, la mise en évidence de certaines fonctionnalités intéressantes est attendue.
+Un audit de performance est attendu sur un site concurrent à notre application, la mise en évidence de certaines fonctionnalités intéressantes est attendue l'outil utilisé __Lighthouse Audit__ depuis la console Google Chrome.
 
-Enfin une documentation utilisateur ainsi qu'une documentation technique sont attendues.
+![img](ecran_todolist.png)
 
-![img](screenshotP8.png)
-
-
-Recap des  [__fichiers et fonctions__](./livrable/function_recap.pdf) de notre appli
 
 ## _Etape 1 : Corrigez les bugs_
 
