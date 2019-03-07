@@ -4,9 +4,9 @@ To-do List App est une application Web qui permet aux utilisateurs de créer et 
 
 Un utilisateur peut modifier, supprimer ou ajouter des éléments dans sa liste créée.
 
-L’application est construite en VanillaJS (JavaScript) orienté objet, testée avec le framework de développement Jasmine et optimisé à l’aide de tâches gulp-uglify et l'outil Lighthouse Audit depuis la console du Google Chrome.
+L’application est construite en __VanillaJS__ (JavaScript) orienté objet, testée avec le framework de développement __Jasmine__ et optimisé à l’aide de tâches __gulp-uglify__ et l'outil __Lighthouse Audit__ depuis la __console du Google Chrome__.
 
-L'application est basée sur la structure MVC (Modèle-Vue-Contrôleur).
+L'application est basée sur la structure __MVC__ (Modèle-Vue-Contrôleur).
 
 L'application To-do List utilise le stockage local de l'utilisateur pour que tous les éléments soient enregistrés, même après une actualisation.
 
